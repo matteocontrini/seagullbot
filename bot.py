@@ -33,12 +33,12 @@ def make_meme(texts: list, offsets: list, template: str, target: str) -> None:
         # find biggest font size that fits
         font_size = 80
         font = ImageFont.truetype("impact.ttf", font_size)
-        text_size = font.getsize(text)
+        text_size = getsize(font, text)
 
         while text_size[0] > width - 20:
             font_size = font_size - 1
             font = ImageFont.truetype("impact.ttf", font_size)
-            text_size = font.getsize(text)
+            text_size = getsize(font, text)
 
         # compute position for text
         text_position_x = (width / 2) - (text_size[0] / 2)
@@ -63,6 +63,9 @@ def make_meme(texts: list, offsets: list, template: str, target: str) -> None:
 
     return width, height
 
+def getsize(font, text):
+    left, top, right, bottom = font.getbbox(text)
+    return right - left, bottom - top
 
 def start(update: Update, context: CallbackContext) -> None:
     uuid = str(uuid4())
