@@ -1,2 +1,2 @@
 # seagullbot
-Source code of [@SeagullScreamBot](https://t.me/SeagullScreamBot)
+Source code of [@SeagullScream2Bot](https://t.me/SeagullScream2Bot)
